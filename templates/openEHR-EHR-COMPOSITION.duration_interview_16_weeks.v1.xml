@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<archetype-relationship-mapping xmlns="http://schemas.clever.bme.zju.edu">
+
+	<template template-id="openEHR-EHR-COMPOSITION.duration_interview_16_weeks.v1.1">
+		<link path="/links[at0025]" value="openEHR-EHR-ADMIN_ENTRY.admission.v1/data[at0001]/items[at0243]/value/id"></link>
+	</template>
+	
+</archetype-relationship-mapping>

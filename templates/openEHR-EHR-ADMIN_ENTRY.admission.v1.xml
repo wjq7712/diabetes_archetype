@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<archetype-relationship-mapping xmlns="http://schemas.clever.bme.zju.edu">
+
+	<template template-id="openEHR-EHR-ADMIN_ENTRY.admission.v1.1">
+		
+	</template>
+	
+</archetype-relationship-mapping>

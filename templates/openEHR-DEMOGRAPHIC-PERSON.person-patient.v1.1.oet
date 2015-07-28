@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>48d3ea45-b2b5-42aa-8031-b18f68203d97</id>
+  <name>openEHR-DEMOGRAPHIC-PERSON.person-patient.v1.1</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />person
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="PERSON" archetype_id="openEHR-DEMOGRAPHIC-PERSON.person-patient.v1.1" concept_name="Patient">
+    <Items xsi:type="PARTY_IDENTITY" archetype_id="openEHR-DEMOGRAPHIC-PARTY_IDENTITY.person_name.v1.1" concept_name="Person name" path="/details[at0002.1]" max="1">
+	</Items>
+	<Items xsi:type="ITEM_TREE" archetype_id="openEHR-DEMOGRAPHIC-ITEM_TREE.person_details.v1.1" concept_name="Person data" path="/details[at0001]" max="1">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-DEMOGRAPHIC-CLUSTER.person_identifier.v1.1" concept_name="Person identifier" path="/relationships[at0.5]/details[at0.50]/items[at0.51]" max="1">
+	</Items>
+  </definition>
+</template>

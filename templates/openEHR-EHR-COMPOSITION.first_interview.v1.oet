@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>48d3ea45-b2b5-42aa-8031-b18f68203d97</id>
+  <name>openEHR-EHR-COMPOSITION.first_interview.v1.1</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />person
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.first_interview.v1.1" concept_name="First interview">
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.familiy_history.v1.1" concept_name="Familiy history" path="/context/other_context[at0001]/items[at0016]">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.smoking_history.v1.1" concept_name="Smoking history" path="/context/other_context[at0001]/items[at0017]">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.alcohol_drinking_history.v1.1" concept_name="Alcohol drinking history" path="/context/other_context[at0001]/items[at0018]">
+	</Items>
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.auxiliary_exmination.v1.1" concept_name="Auxiliary exmination" path="/context/other_context[at0001]/items[at0019]">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.biochemical_criterion.v1.1" concept_name="Biochemical criterion" path="/context/other_context[at0001]/items[at0020]">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.first_time_investigate_diagnosis.v1.1" concept_name="First time investigate diagnosis" path="/context/other_context[at0001]/items[at0021]">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.physical_exmination_condition.v1.1" concept_name="Physical exmination condition" path="/context/other_context[at0001]/items[at0022]">
+	</Items>
+	
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.diabetes_history.v1.1" concept_name="Diabetes history" path="/content[at0003]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.hypertension.v1.1" concept_name="Hypertension" path="/content[at0004]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.coronary_heart_disease.v1.1" concept_name="Coronary heart disease" path="/content[at0005]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.cardiac_failure.v1.1" concept_name="Cardiac failure" path="/content[at0006]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.cerebrovascular_disease.v1.1" concept_name="Cerebrovascular disease" path="/content[at0007]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.dyslipidemia.v1.1" concept_name="Dyslipidemia" path="/content[at0008]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.hyperuricemia.v1.1" concept_name="Hyperuricemia" path="/content[at0009]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adiposis.v1.1" concept_name="Adiposis" path="/content[at0010]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.liver_injury.v1.1" concept_name="Liver injury" path="/content[at0011]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.lower_extremity_angiopathy.v1.1" concept_name="Lower extremity angiopathy" path="/content[at0012]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.nephropathy.v1.1" concept_name="Nephropathy" path="/content[at0013]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.cancer.v1.1" concept_name="Cancer" path="/content[at0014]">
+	</Items>
+	<Items xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.other_diease.v1.1" concept_name="Other diease" path="/content[at0015]">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.record_related.v1.1" concept_name="Record related" path="/context/other_context[at0001]/items[at0030]">
+	</Items>
+  </definition>
+</template>

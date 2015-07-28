@@ -1,0 +1,77 @@
+﻿<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>48d3ea45-b2b5-42aa-8031-b18f68203d97</id>
+  <name>openEHR-EHR-COMPOSITION.duration_interview_40_weeks.v1.1</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />person
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.duration_interview_40_weeks.v1.1" concept_name="duration interview 40 weeks">
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.auxiliary_exmination.v1.1" concept_name="Auxiliary exmination" path="/context/other_context[at0001]/items[at0019]" max="1">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.biochemical_criterion.v1.1" concept_name="Biochemical criterion" path="/context/other_context[at0001]/items[at0020]" max="1">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.physical_exmination_condition.v1.1" concept_name="Physical exmination condition" path="/context/other_context[at0001]/items[at0022]" max="1">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.new_or_modifiy_diagnosis.v1.1" concept_name="New or modifiy diagnosis" path="/context/other_context[at0001]/items[at0026]" max="1">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.adverse_event_record.v1.1" concept_name="Adverse event record" path="/context/other_context[at0001]/items[at0027]" max="1">
+	</Items>
+	<Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.record_related.v1.1" concept_name="Record related" path="/context/other_context[at0001]/items[at0028]" max="1">
+	</Items>
+  </definition>
+</template>
