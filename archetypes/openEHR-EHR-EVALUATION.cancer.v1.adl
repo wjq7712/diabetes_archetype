@@ -1,0 +1,312 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.cancer.v1.1
+
+concept
+	[at0000]	-- Cancer
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"7F1C74798B91CF6D6858780C720C3DD8">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Cancer
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0007, 	-- virtuous
+									at0008]	-- Vacious
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Stage
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Early phase
+									at0010, 	-- Interim
+									at0011, 	-- End stage
+									at0012]	-- Unknown
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Transplant
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Treatment prognosis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Site
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0014, 	-- Lung
+									at0015, 	-- Stomch
+									at0016, 	-- Intestine
+									at0017, 	-- Pancreas
+									at0024, 	-- Liver
+									at0018, 	-- Thyroid
+									at0019, 	-- Encephalic
+									at0020, 	-- Blood
+									at0021, 	-- Bone and joint
+									at0022]	-- Others
+								}
+							}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {	-- Vacious content
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cancer">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Stage">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Transplant">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Treatment prognosis">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"flag">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"virtuous">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Vacious">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Early phase">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Interim">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"End stage">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Unknown">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Site">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Lung">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Stomch">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Intestine">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Pancreas">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Thyroid">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Encephalic">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Blood">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Bone and joint">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Vacious content">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Liver">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"恶性肿瘤">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"类型">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"分期">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"转移">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"治疗预后">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"恶性肿瘤标志">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"良性">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"恶性">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"早期">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"中期">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"晚期">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"不详">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"部位">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"肺">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"胃">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"肠道">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"胰腺">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"甲状腺">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"颅内">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"血液">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"骨关节">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"其它">
+					description = <"**(en)">
+				>
+				["at0023"] = <
+					text = <"恶性肿瘤内容">
+					description = <"**(en)">
+				>
+				["at0024"] = <
+					text = <"肝脏">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

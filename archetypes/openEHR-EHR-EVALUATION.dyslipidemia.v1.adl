@@ -1,0 +1,389 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.dyslipidemia.v1.1
+
+concept
+	[at0000]	-- Dyslipidemia
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B7ECBFDC52E71B8D840B8D66EB279259">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Dyslipidemia
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Diagnosis duration
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"a">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0004, 	-- High Ch + High LDL-C
+									at0005, 	-- High LDL-C + High TG
+									at0006, 	-- High TG + Low HDL-C
+									at0007]	-- High TG
+								}
+							}
+						}
+					}
+					CLUSTER[at0009] occurrences matches {0..1} matches {	-- Recent examination
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- LDL-C
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Tch
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- HDL-C
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {	-- TG
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0014] occurrences matches {0..1} matches {	-- Apo-a
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0015] occurrences matches {0..1} matches {	-- Therapy
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0016] occurrences matches {0..1} matches {	-- Dietary therapy
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0017] occurrences matches {0..1} matches {	-- Oral lipid-lowering drugs
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0020, 	-- None
+											at0021, 	-- Atorvastatin
+											at0022, 	-- Simvastatin
+											at0023, 	-- Rosuvastatin
+											at0024, 	-- Pravastatin
+											at0025, 	-- Fluvastatin
+											at0026, 	-- HypoCol
+											at0027, 	-- Gemfibrozil
+											at0028, 	-- Fenofibrate
+											at0029, 	-- Niacin
+											at0030, 	-- Ezetimibe
+											at0031, 	-- Bile acid sequestrants
+											at0032]	-- Others
+										}
+									}
+								}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {	-- Flag
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Dyslipidemia">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Diagnosis duration">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"High Ch + High LDL-C">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"High LDL-C + High TG">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"High TG + Low HDL-C">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"High TG">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Recent examination">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"LDL-C">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Tch">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"HDL-C">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"TG">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Apo-a">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Therapy">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Dietary therapy">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Oral lipid-lowering drugs">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Atorvastatin">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Simvastatin">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Rosuvastatin">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Pravastatin">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Fluvastatin">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"HypoCol">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Gemfibrozil">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Fenofibrate">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Niacin">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Ezetimibe">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Bile acid sequestrants">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Others">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"脂代谢紊乱">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"确诊时长">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"类型">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"高Ch+高LDL-C">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"高LDL-C和高TG">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"高TG和低HDL-C">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"高TG">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"近期检查">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"LDL-C">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"Tch">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"HDL-C">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"TG">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"Apo-a">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"治疗">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"饮食治疗">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"口服降脂药">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"治疗标志">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"阿托伐他汀">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"辛伐他汀">
+					description = <"**(en)">
+				>
+				["at0023"] = <
+					text = <"瑞舒伐他汀">
+					description = <"**(en)">
+				>
+				["at0024"] = <
+					text = <"普伐他汀">
+					description = <"**(en)">
+				>
+				["at0025"] = <
+					text = <"氟伐他汀">
+					description = <"**(en)">
+				>
+				["at0026"] = <
+					text = <"血脂康">
+					description = <"**(en)">
+				>
+				["at0027"] = <
+					text = <"吉非罗齐">
+					description = <"**(en)">
+				>
+				["at0028"] = <
+					text = <"非诺贝特">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"烟酸">
+					description = <"**(en)">
+				>
+				["at0030"] = <
+					text = <"依泽麦布">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"胆酸螯合剂">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"其它">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

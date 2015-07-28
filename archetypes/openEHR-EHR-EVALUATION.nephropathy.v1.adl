@@ -1,0 +1,257 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.nephropathy.v1.1
+
+concept
+	[at0000]	-- Nephropathy
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"C29736EAB9F9C4F587415CB690281F75">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Nephropathy
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Nephropathy type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0011, 	-- None
+									at0012, 	-- Diabetic Nephropathy
+									at0013, 	-- Hypertensive nephropathy
+									at0014, 	-- Autoimmune nephritis
+									at0015, 	-- Drug-induced renal injury
+									at0016, 	-- Obstructive nephropathy
+									at0017, 	-- Ischemic nephropathy
+									at0018]	-- Ｕｎｋｎｏｗｎ
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Cr
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- UN
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Albumin urine
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					CLUSTER[at0006] occurrences matches {0..1} matches {	-- Albumin urine details
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Low urinary albumin/urea albumin creatinine ratio
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- High urinary albumin/urea albumin creatinine ratio
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Low urinary albumin
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- High urinary albumin
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Nephropathy">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Nephropathy type">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Cr">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"UN">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Albumin urine">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Albumin urine details">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Low urinary albumin/urea albumin creatinine ratio">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"High urinary albumin/urea albumin creatinine ratio">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Low urinary albumin">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"High urinary albumin">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Diabetic Nephropathy">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Hypertensive nephropathy">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Autoimmune nephritis">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Drug-induced renal injury">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Obstructive nephropathy">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Ischemic nephropathy">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Ｕｎｋｎｏｗｎ">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"肾脏疾病">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"肾病疾病类型">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"Cr">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"UN">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"白蛋白尿标志">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"白蛋白尿细节">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"尿白蛋白/肌酐比值最小值">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"尿白蛋白/肌酐比值最大值">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"尿白蛋白最小值">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"尿白蛋白最大值">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"糖尿病肾病">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"高血压肾病">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"自家免疫性肾病">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"药物性肾损伤">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"梗阻性肾病">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"缺血性肾病">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"原因不明">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

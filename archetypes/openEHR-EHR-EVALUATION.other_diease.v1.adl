@@ -1,0 +1,117 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.other_diease.v1.1
+
+concept
+	[at0000]	-- Other diease
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"49BA5C0544AA3C3A8F8859DA974509F9">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Other diease
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Diagnosis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Therapy
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Other diease">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Diagnosis">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Therapy">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"其他疾病">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"诊断">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"治疗">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"备注">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"*Flag(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

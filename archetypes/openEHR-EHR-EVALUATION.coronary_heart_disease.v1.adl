@@ -1,0 +1,341 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.coronary_heart_disease.v1.1
+
+concept
+	[at0000]	-- Coronary heart disease
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F3CC3E8FE0BD0048BC2F4E17E867C76F">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Coronary heart disease
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Diagnosis duration
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"a">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Types
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0017, 	-- None
+									at0018, 	-- Stable angina pectoris
+									at0019, 	-- Unstable angina
+									at0020]	-- Acute coronary syndrome
+								}
+							}
+						}
+					}
+					CLUSTER[at0004] occurrences matches {0..1} matches {	-- Myocardial infarction
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Duration
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"a">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Site
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0021, 	-- Left coronary
+											at0022, 	-- Right coronary
+											at0023]	-- Multiple vessels
+										}
+									}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0013, 	-- None
+											at0014, 	-- Acute myocardial infarction
+											at0015]	-- Remote infarct
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0007] occurrences matches {0..1} matches {	-- Therapy
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- Medication
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- PTCA duration
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"a">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Heart stent duration
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"a">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Coronary artery bypass surgery
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"a">
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Coronary heart disease">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Diagnosis duration">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Types">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Myocardial infarction">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Duration">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Site">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Therapy">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Medication">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"PTCA duration">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Heart stent duration">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Coronary artery bypass surgery">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Acute myocardial infarction">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Remote infarct">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Stable angina pectoris">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Unstable angina">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Acute coronary syndrome">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Left coronary">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Right coronary">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Multiple vessels">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"冠心病">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"确诊时长">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"冠心病类型">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"心肌梗死">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"患病时长">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"部位">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"治疗">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"药物">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"PTCA时长">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"心脏支架时长">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"冠脉搭桥时长">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"心梗类型">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"急性心梗">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"陈旧性心梗">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"稳定型心绞痛">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"不稳定性心绞痛">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"急性冠脉综合症">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"左冠">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"右冠">
+					description = <"**(en)">
+				>
+				["at0023"] = <
+					text = <"多支">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

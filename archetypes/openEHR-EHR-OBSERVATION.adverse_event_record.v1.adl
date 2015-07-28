@@ -1,0 +1,514 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.adverse_event_record.v1.1
+
+concept
+	[at0000]	-- Adverse event record
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"BF92316965B7677815C6B7002C6CFA57">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Adverse event record
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Adverse event level
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Serious
+													at0006]	-- Ordinary
+												}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Times after follow up 
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Adverse type
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009, 	-- AE
+													at0010]	-- SAE
+												}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Sequence
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Medical record datetime
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Adverse event happened datetime
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Adverse event name
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									CLUSTER[at0015] occurrences matches {0..1} matches {	-- Eyewitness
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- Flag
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- Name
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Relationship
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {	-- Adverse event happend place
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									CLUSTER[at0020] occurrences matches {0..1} matches {	-- Inducing factor
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0021] occurrences matches {0..1} matches {	-- Flag
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0022] occurrences matches {0..1} matches {	-- Inducing factor content
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0025] occurrences matches {0..1} matches {	-- Result
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0047] occurrences matches {0..1} matches {	-- In hospital
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0044] occurrences matches {0..1} matches {	-- Result
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0045, 	-- No special processing but spontaneous remission absolutely
+															at0046, 	-- Processing and remission totally
+															at0048, 	-- After processing and remission partly
+															at0049, 	-- After processing but no remission
+															at0050]	-- After processing dead
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Treatment and cure measure
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									CLUSTER[at0035] occurrences matches {0..1} matches {	-- Follow up
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0036] occurrences matches {0..1} matches {	-- Flag
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0037] occurrences matches {0..1} matches {	-- Method
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0038, 	-- Additional interview
+															at0039, 	-- Telephone interview
+															at0040]	-- Others
+														}
+													}
+												}
+											}
+											ELEMENT[at0041] occurrences matches {0..1} matches {	-- Comment
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Adverse event record">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Adverse event level">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Serious">
+					description = <"ordinary">
+				>
+				["at0006"] = <
+					text = <"Ordinary">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Times after follow up ">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Adverse type">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"AE">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"SAE">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Sequence">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Medical record datetime">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Adverse event happened datetime">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Adverse event name">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Eyewitness">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Name">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Relationship">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Adverse event happend place">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Inducing factor">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Inducing factor content">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Treatment and cure measure">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Follow up">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Method">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Additional interview">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Telephone interview">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"No special processing but spontaneous remission absolutely">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Processing and remission totally">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"In hospital">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"After processing and remission partly">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"After processing but no remission">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"After processing dead">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"不良事件记录表">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"不良事件等级">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"严重不良事件">
+					description = <"*ordinary(en)">
+				>
+				["at0006"] = <
+					text = <"不良事件">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"随访次序">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"不良事件类型">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"AE">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"SAE">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"发生次序数">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"病历记录时间">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"不良事件发生时间">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"不良事件发生地点">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"见证人">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"见证人标志">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"见证人姓名">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"与见证人关系">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"不良事件发生地点">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"可能诱发因素">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"诱发因素">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"诱发因素具体内容">
+					description = <"**(en)">
+				>
+				["at0025"] = <
+					text = <"结局（愈后）">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"救治措施">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"随后访视">
+					description = <"**(en)">
+				>
+				["at0036"] = <
+					text = <"随后方式">
+					description = <"**(en)">
+				>
+				["at0037"] = <
+					text = <"访视方式">
+					description = <"**(en)">
+				>
+				["at0038"] = <
+					text = <"增加访视">
+					description = <"**(en)">
+				>
+				["at0039"] = <
+					text = <"电话访视">
+					description = <"**(en)">
+				>
+				["at0040"] = <
+					text = <"其它访视">
+					description = <"**(en)">
+				>
+				["at0041"] = <
+					text = <"访视备注">
+					description = <"**(en)">
+				>
+				["at0044"] = <
+					text = <"结局">
+					description = <"**(en)">
+				>
+				["at0045"] = <
+					text = <"无特殊处理，完全自行缓解">
+					description = <"**(en)">
+				>
+				["at0046"] = <
+					text = <"处置后，完全缓解">
+					description = <"**(en)">
+				>
+				["at0047"] = <
+					text = <"住院">
+					description = <"**(en)">
+				>
+				["at0048"] = <
+					text = <"处置后，部分缓解">
+					description = <"**(en)">
+				>
+				["at0049"] = <
+					text = <"处置后，未缓解">
+					description = <"**(en)">
+				>
+				["at0050"] = <
+					text = <"处置后，死亡">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

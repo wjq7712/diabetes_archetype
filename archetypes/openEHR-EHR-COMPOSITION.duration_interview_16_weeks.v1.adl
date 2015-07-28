@@ -1,0 +1,198 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.duration_interview_16_weeks.v1.1
+
+concept
+	[at0000]	-- duration interview 16 weeks
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"23AF83FD0D0A75C004701F4F39EEF89B">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- duration interview 16 weeks
+		subject matches {
+            PARTY_SELF[at0024] matches {	--	Patient identifier
+                externalRef matches {
+                    PARTY_REF matches {	
+                        id matches {
+                            GENERIC_ID matches {*}
+                        }
+                    }
+                }
+            }
+        }
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0002] occurrences matches {0..1} matches {	-- Interview datetime
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {	-- Auxiliary exmination
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.auxiliary_exmination(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+							allow_archetype CLUSTER[at0020] occurrences matches {0..*} matches {	-- Biochemical criterion
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.biochemical_criterion(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+							allow_archetype CLUSTER[at0022] occurrences matches {0..*} matches {	-- Physical exmination condition
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.physical_exmination_condition(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+							allow_archetype CLUSTER[at0026] occurrences matches {0..*} matches {	-- New or Modified diagnosis
+								include
+									archetype_id/value matches {/.*/}
+							}
+							allow_archetype CLUSTER[at0027] occurrences matches {0..*} matches {	-- Adverse event
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.adverse_event_record(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+							allow_archetype CLUSTER[at0028] occurrences matches {0..*} matches {	-- Record related
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.record_related(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+						}
+					}
+				}
+			}
+		}
+		links existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+            LINK[at0025] occurrences matches {0..*} matches {  -- Encounter identifier
+                meaning existence matches {1..1} matches {
+                    DV_TEXT matches {  
+                        value matches {"related to"}
+                    }
+                }
+                target existence matches {1..1} matches {
+                    DV_EHR_URI matches {  
+                        value existence matches {0..1} matches {"openEHR-EHR-ADMIN_ENTRY.admission.v1/data[at0001]/items[at0243]/value/id"}
+                    }
+                }
+            }
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"duration interview 16 weeks">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Interview datetime">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Auxiliary exmination">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Biochemical criterion">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Physical exmination condition">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Patient identifier">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Encounter identifier">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"New or Modified diagnosis">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Adverse event">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Record related">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"中期访视">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"访视时间">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"辅助检查">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"生化指标">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"体检情况">
+					description = <"**(en)">
+				>
+				["at0024"] = <
+					text = <"病人号">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"就诊号">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"新增、修改诊断">
+					description = <"**(en)">
+				>
+				["at0027"] = <
+					text = <"不良事件发生记录">
+					description = <"**(en)">
+				>
+				["at0028"] = <
+					text = <"记录相关信息">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

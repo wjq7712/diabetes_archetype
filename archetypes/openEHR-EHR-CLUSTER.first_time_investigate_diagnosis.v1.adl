@@ -1,0 +1,815 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.first_time_investigate_diagnosis.v1.1
+
+concept
+	[at0000]	-- First time investigate diagnosis
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"95186092AFB026C013E759E14D105FA0">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- First time investigate diagnosis
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Diabetes
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Types
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0051, 	-- None
+									at0052, 	-- T2DM
+									at0053, 	-- T1DM
+									at0054]	-- Others
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Other diabetes content
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0007] occurrences matches {0..1} matches {	-- Hypertension
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- Primary
+									at0011, 	-- Secondary
+									at0055]	-- None
+								}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Secodary content
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0013] occurrences matches {0..1} matches {	-- Dyslipidemia
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Dyslipidemia type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- None
+									at0017, 	-- High Ch and High LDL-C
+									at0056, 	-- High LDL-C and High TG
+									at0057, 	-- High TG and Low HDL-C
+									at0058]	-- High TG
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0018] occurrences matches {0..1} matches {	-- Hypeluricemia
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Hypeluricemia type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0020, 	-- Primary
+									at0021, 	-- Secondary
+									at0059]	-- None
+								}
+							}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {	-- Gout
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0024] occurrences matches {0..1} matches {	-- Fat
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0027, 	-- Simple 
+									at0028, 	-- Secondary
+									at0029]	-- None
+								}
+							}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {	-- Other fat
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0032] occurrences matches {0..1} matches {	-- Coronary heart disease
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0033] occurrences matches {0..1} matches {	-- Myocardial infarction type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0060, 	-- None
+									at0061, 	-- Remote infarct
+									at0062, 	-- Acute myocardial infarction
+									at0063, 	-- Stable angina pectoris
+									at0064, 	-- Unstable angina pectoris
+									at0065]	-- Acute coronary syndrome
+								}
+							}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0035, 	-- PTCA-stent implantation
+									at0036, 	-- Bypass
+									at0037, 	-- Arrhythmia
+									at0066]	-- Heart failure
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0038] occurrences matches {0..1} matches {	-- Cerebrovascular disease
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0040] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0041, 	-- Cavity obstruction
+									at0042, 	-- Cerebral hemorrhage
+									at0043, 	-- Cerebral infarction
+									at0067]	-- None
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0044] occurrences matches {0..1} matches {	-- Nephropathy
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0045] occurrences matches {0..1} matches {	-- CKD stage
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0046] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0047, 	-- None
+									at0048, 	-- Diabetic nephropathy
+									at0068, 	-- Hypertensive nephropathy
+									at0069, 	-- Autoimmune nephritis
+									at0070, 	-- Drug-induced renal injury
+									at0071, 	-- Obstructive nephropathy
+									at0072, 	-- Ischemic nephropathy
+									at0073]	-- Unknown
+								}
+							}
+						}
+					}
+					ELEMENT[at0049] occurrences matches {0..1} matches {	-- Diabetic Nephropathy stage
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0074] occurrences matches {0..1} matches {	-- Liver injury
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0075, 	-- None
+							at0076, 	-- NAFLD
+							at0077, 	-- Alcoholic fatty liver
+							at0078, 	-- Viral hepatitis
+							at0079]	-- Drug induced liver injury
+						}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Others
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"First time investigate diagnosis">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Diabetes">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Types">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Other diabetes content">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Hypertension">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Primary">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Secondary">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Secodary content">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Dyslipidemia">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Dyslipidemia type">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"High Ch and High LDL-C">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Hypeluricemia">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Hypeluricemia type">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Primary">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Secondary">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Gout">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Fat">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Simple ">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Secondary">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Other fat">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Coronary heart disease">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Myocardial infarction type">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"PTCA-stent implantation">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Bypass">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Arrhythmia">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Cerebrovascular disease">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Cavity obstruction">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Cerebral hemorrhage">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Cerebral infarction">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Nephropathy">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"CKD stage">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Diabetic nephropathy">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Diabetic Nephropathy stage">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"T2DM">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"T1DM">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"High LDL-C and High TG">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"High TG and Low HDL-C">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"High TG">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Remote infarct">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Acute myocardial infarction">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Stable angina pectoris">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Unstable angina pectoris">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Acute coronary syndrome">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Heart failure">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Hypertensive nephropathy">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Autoimmune nephritis">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Drug-induced renal injury">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"Obstructive nephropathy">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"Ischemic nephropathy">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"Unknown">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"Liver injury">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"NAFLD">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"Alcoholic fatty liver">
+					description = <"*">
+				>
+				["at0078"] = <
+					text = <"Viral hepatitis">
+					description = <"*">
+				>
+				["at0079"] = <
+					text = <"Drug induced liver injury">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"首次调查诊断">
+					description = <"*unknown(zh)">
+				>
+				["at0001"] = <
+					text = <"糖尿病">
+					description = <"**(zh)">
+				>
+				["at0005"] = <
+					text = <"*Types(en)">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"其它糖尿病内容">
+					description = <"**(zh)">
+				>
+				["at0007"] = <
+					text = <"高血压">
+					description = <"**(zh)">
+				>
+				["at0009"] = <
+					text = <"类型">
+					description = <"**(zh)">
+				>
+				["at0010"] = <
+					text = <"原发">
+					description = <"**(zh)">
+				>
+				["at0011"] = <
+					text = <"继发">
+					description = <"**(zh)">
+				>
+				["at0012"] = <
+					text = <"继发内容">
+					description = <"**(zh)">
+				>
+				["at0013"] = <
+					text = <"血脂紊乱">
+					description = <"**(zh)">
+				>
+				["at0015"] = <
+					text = <"血脂紊乱类型">
+					description = <"**(zh)">
+				>
+				["at0016"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"高Ch+高LDL-C">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"高尿酸">
+					description = <"**(zh)">
+				>
+				["at0019"] = <
+					text = <"高尿酸类型">
+					description = <"**(zh)">
+				>
+				["at0020"] = <
+					text = <"原发">
+					description = <"**(zh)">
+				>
+				["at0021"] = <
+					text = <"继发">
+					description = <"**(zh)">
+				>
+				["at0023"] = <
+					text = <"痛风">
+					description = <"**(zh)">
+				>
+				["at0024"] = <
+					text = <"肥胖">
+					description = <"**(zh)">
+				>
+				["at0026"] = <
+					text = <"类型">
+					description = <"**(zh)">
+				>
+				["at0027"] = <
+					text = <"单纯性">
+					description = <"**(en)">
+				>
+				["at0028"] = <
+					text = <"继发">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0030"] = <
+					text = <"其它肥胖">
+					description = <"**(zh)">
+				>
+				["at0032"] = <
+					text = <"冠心病">
+					description = <"**(zh)">
+				>
+				["at0033"] = <
+					text = <"心肌梗死类型">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"类型">
+					description = <"**(zh)">
+				>
+				["at0035"] = <
+					text = <"PTCA-支架植入">
+					description = <"**(en)">
+				>
+				["at0036"] = <
+					text = <"搭桥术">
+					description = <"**(en)">
+				>
+				["at0037"] = <
+					text = <"心律失常">
+					description = <"**(en)">
+				>
+				["at0038"] = <
+					text = <"脑血管病">
+					description = <"**(zh)">
+				>
+				["at0040"] = <
+					text = <"类型">
+					description = <"**(zh)">
+				>
+				["at0041"] = <
+					text = <"腔梗">
+					description = <"**(en)">
+				>
+				["at0042"] = <
+					text = <"脑出血">
+					description = <"**(en)">
+				>
+				["at0043"] = <
+					text = <"脑梗死">
+					description = <"**(en)">
+				>
+				["at0044"] = <
+					text = <"肾病">
+					description = <"**(zh)">
+				>
+				["at0045"] = <
+					text = <"CKD分期">
+					description = <"**(en)">
+				>
+				["at0046"] = <
+					text = <"类型">
+					description = <"**(zh)">
+				>
+				["at0047"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0048"] = <
+					text = <"糖尿病肾病">
+					description = <"**(en)">
+				>
+				["at0049"] = <
+					text = <"糖尿病肾病分期">
+					description = <"**(en)">
+				>
+				["at0050"] = <
+					text = <"其它疾病">
+					description = <"**(zh)">
+				>
+				["at0051"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0052"] = <
+					text = <"2型糖尿病">
+					description = <"**(en)">
+				>
+				["at0053"] = <
+					text = <"1型糖尿病">
+					description = <"**(en)">
+				>
+				["at0054"] = <
+					text = <"其它">
+					description = <"**(en)">
+				>
+				["at0055"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0056"] = <
+					text = <"高LDL-C和高TG">
+					description = <"**(en)">
+				>
+				["at0057"] = <
+					text = <"高TG和低HDL-C">
+					description = <"**(en)">
+				>
+				["at0058"] = <
+					text = <"高TG">
+					description = <"**(en)">
+				>
+				["at0059"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0060"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0061"] = <
+					text = <"陈旧性心梗">
+					description = <"**(en)">
+				>
+				["at0062"] = <
+					text = <"急性心梗">
+					description = <"**(en)">
+				>
+				["at0063"] = <
+					text = <"稳定型心绞痛">
+					description = <"**(en)">
+				>
+				["at0064"] = <
+					text = <"不稳定性心绞痛">
+					description = <"**(en)">
+				>
+				["at0065"] = <
+					text = <"急性冠脉综合症">
+					description = <"**(en)">
+				>
+				["at0066"] = <
+					text = <"心衰">
+					description = <"**(en)">
+				>
+				["at0067"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0068"] = <
+					text = <"高血压肾病">
+					description = <"**(en)">
+				>
+				["at0069"] = <
+					text = <"自家免疫性肾病">
+					description = <"**(en)">
+				>
+				["at0070"] = <
+					text = <"药物性损伤">
+					description = <"**(en)">
+				>
+				["at0071"] = <
+					text = <"梗阻性肾病">
+					description = <"**(en)">
+				>
+				["at0072"] = <
+					text = <"缺血性肾病">
+					description = <"**(en)">
+				>
+				["at0073"] = <
+					text = <"原因不明">
+					description = <"**(en)">
+				>
+				["at0074"] = <
+					text = <"肝损害">
+					description = <"**(en)">
+				>
+				["at0075"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0076"] = <
+					text = <"非酒精性脂肪肝">
+					description = <"**(en)">
+				>
+				["at0077"] = <
+					text = <"酒精性肝损">
+					description = <"**(en)">
+				>
+				["at0078"] = <
+					text = <"病毒性肝炎">
+					description = <"**(en)">
+				>
+				["at0079"] = <
+					text = <"药物性肝损">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

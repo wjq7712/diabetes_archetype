@@ -1,0 +1,234 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.adiposis.v1.1
+
+concept
+	[at0000]	-- Adiposis
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"623AFB286E0433C70DB1296E92EFFF92">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Adiposis
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Pure
+									at0004, 	-- Secondary
+									at0012]	-- None
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Secondary content
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Diagnosis duration
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"a">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Highest weight
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"kg">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Max waist width
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Recent weight
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"kg">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- BMI
+						value matches {
+							C_DV_QUANTITY <
+							>
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Waist width
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Adiposis">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Pure">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Secondary">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Secondary content">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Diagnosis duration">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Highest weight">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Max waist width">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Recent weight">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"BMI">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Waist width">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"None">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"肥胖症">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"类型">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"单纯性">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"继发">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"继发内容">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"起始年限">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"最高体重">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"最大腰围">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"近期体重">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"BMI">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"腰围">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

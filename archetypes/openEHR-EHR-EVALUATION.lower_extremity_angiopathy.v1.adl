@@ -1,0 +1,142 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.lower_extremity_angiopathy.v1.1
+
+concept
+	[at0000]	-- Lower extremity angiopathy
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"8CFC403CB62603C9A07A75714EB01CD3">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Lower extremity angiopathy
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Diagnosis duration
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"a">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Intermittent claudication
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Site
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0005, 	-- Left
+									at0006, 	-- Right
+									at0007]	-- Both
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lower extremity angiopathy">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Diagnosis duration">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Intermittent claudication">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Site">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Left">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Right">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Both">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"下肢血管病变">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"诊断时长">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"间歇性跛行">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"部位">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"左">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"右">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"双">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

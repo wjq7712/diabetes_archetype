@@ -1,0 +1,1723 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.diabetes_history.v1.1
+
+concept
+	[at0000]	-- Diabetes history
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Eric Min">
+		["organisation"] = <"Zhejiang university">
+		["email"] = <"ericmin1987@zju.edu.cn">
+		["date"] = <"2015-05-20">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the diabetes history information.
+">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"3B4F9F0622B562091677FE5465B4DF23">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Diabetes history
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0002] occurrences matches {0..1} matches {	-- First Detected
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- IGR
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0081, 	-- IGT
+											at0082, 	-- IFG
+											at0083, 	-- IGT+IFG
+											at0084]	-- GAD
+										}
+									}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- Datetime
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Therapeutic condition
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0006] occurrences matches {0..1} matches {	-- Diagnose DM
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- DM type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0085, 	-- T2DM
+											at0086, 	-- T1DM
+											at0087]	-- Others
+										}
+									}
+								}
+							}
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- Datetime
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Family history
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0088, 	-- None
+											at0089, 	-- Father
+											at0090, 	-- Mother
+											at0091, 	-- Brother&Sister
+											at0092, 	-- Grandfather
+											at0093, 	-- Grandmother
+											at0094, 	-- Grandfather in law
+											at0095, 	-- Grandmother in law
+											at0096, 	-- Ant, uncle, nephew
+											at0097]	-- Ant, uncle, nephew in law
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0010] occurrences matches {0..1} matches {	-- Diet therapy
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Assessment
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0013, 	-- Good
+											at0014, 	-- Normal
+											at0015]	-- Bad
+										}
+									}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- Staple food per day
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::124]>
+										list = <
+											["1"] = <
+												units = <"kg">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0016] occurrences matches {0..1} matches {	-- Vegetable per day
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::124]>
+										list = <
+											["1"] = <
+												units = <"kg">
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					CLUSTER[at0017] occurrences matches {0..1} matches {	-- Sport therapy
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0018] occurrences matches {0..1} matches {	-- Assessment
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0019, 	-- Good
+											at0020, 	-- Ordinary
+											at0021]	-- Little
+										}
+									}
+								}
+							}
+							CLUSTER[at0022] occurrences matches {0..*} matches {	-- Sport
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0023] occurrences matches {0..1} matches {	-- Type
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0098, 	-- Slow walking
+													at0099, 	-- Walking
+													at0100, 	-- Running
+													at0101, 	-- Bicycling
+													at0102, 	-- Table tennis
+													at0103, 	-- Gate ball
+													at0104, 	-- Badminton
+													at0105, 	-- Swimming
+													at0106, 	-- Gymnastics
+													at0107]	-- Others
+												}
+											}
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {	-- Duration
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::128]>
+												list = <
+													["1"] = <
+														units = <"h">
+													>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Blood Glucose Self-Monitoring
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0026, 	-- Zero to one time one month
+									at0027, 	-- Zero to one time one week
+									at0028, 	-- more than five times one week
+									at0108, 	-- None
+									at0109]	-- Two to five times one week
+								}
+							}
+						}
+					}
+					ELEMENT[at0029] occurrences matches {0..1} matches {	-- Blood glucose monitoring in hospital per year
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0030] occurrences matches {0..1} matches {	-- Recent blood glucose
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0031] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0032, 	-- Before meals
+											at0033, 	-- After meals
+											at0034, 	-- Limosis in hospital
+											at0035]	-- Two hours after meals
+										}
+									}
+								}
+							}
+							ELEMENT[at0036] occurrences matches {0..1} matches {	-- Min value
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0037] occurrences matches {0..1} matches {	-- Max value
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0038] occurrences matches {0..1} matches {	-- HbA1c test in a year
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0039] occurrences matches {0..1} matches {	-- Min value
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::507]>
+										list = <
+											["1"] = <
+												units = <"%">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0040] occurrences matches {0..1} matches {	-- Max value
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::507]>
+										list = <
+											["1"] = <
+												units = <"%">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0041] occurrences matches {0..1} matches {	-- Times
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0042] occurrences matches {0..1} matches {	-- Min reference
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::507]>
+										list = <
+											["1"] = <
+												units = <"%">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0043] occurrences matches {0..1} matches {	-- Max reference
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::507]>
+										list = <
+											["1"] = <
+												units = <"%">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0110] occurrences matches {0..1} matches {	-- Flag
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0044] occurrences matches {0..1} matches {	-- Hypoglycemic agent therapy
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0045] occurrences matches {0..1} matches {	-- Classification
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0046, 	-- Ever used before
+											at0047]	-- Recent used
+										}
+									}
+								}
+							}
+							ELEMENT[at0048] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0049, 	-- Single-agent oral
+											at0050, 	-- Multiple-agent oral
+											at0051, 	-- Insulin
+											at0052, 	-- Combination medication
+											at0053]	-- Others
+										}
+									}
+								}
+							}
+							ELEMENT[at0054] occurrences matches {0..*} matches {	-- Hypoglycemic agent
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0114, 	-- None
+											at0115, 	-- Biguanides
+											at0116, 	-- GSDI
+											at0117, 	-- Sulfonylurea
+											at0118, 	-- Nateglinide
+											at0119, 	-- Pioglitazone
+											at0120, 	-- DPP4-I
+											at0121, 	-- Chinese patent medicine
+											at0122]	-- Others
+										}
+									}
+								}
+							}
+							ELEMENT[at0113] occurrences matches {0..1} matches {	-- Insulin
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0123, 	-- None
+											at0124, 	-- Premixed human insulin 70/30
+											at0125, 	-- Premixed human insulin 30R
+											at0126, 	-- Premixed insulin analogs50R
+											at0127, 	-- Insulin detemir
+											at0128, 	-- Insulin glargine
+											at0129, 	-- Insulin lispro
+											at0130, 	-- Insulin aspart
+											at0131]	-- Animal insulin
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0055] occurrences matches {0..1} matches {	-- Acute complications
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0057, 	-- Hypoglycemia
+											at0058, 	-- Hypoglycemic coma
+											at0059, 	-- Ketoacidosis
+											at0060, 	-- Hyperglycemic hyperosmolar status
+											at0061, 	-- Severe infection
+											at0062, 	-- Lactic acidosis
+											at0063, 	-- Others
+											at0132]	-- None
+										}
+									}
+								}
+							}
+							ELEMENT[at0064] occurrences matches {0..1} matches {	-- Comment
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0065] occurrences matches {0..1} matches {	-- Chronic complication
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0066] occurrences matches {0..1} matches {	-- Retinopathy stage
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0133, 	-- None
+											at0134, 	-- One stage
+											at0146, 	-- Two stage
+											at0147, 	-- Three stage
+											at0148, 	-- Four stage
+											at0149, 	-- Five stage
+											at0150]	-- Six stage
+										}
+									}
+								}
+							}
+							ELEMENT[at0067] occurrences matches {0..1} matches {	-- Stage renal disease
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0135, 	-- None
+											at0136, 	-- One stage
+											at0151, 	-- Two stage
+											at0152, 	-- Three stage
+											at0153, 	-- Four stage
+											at0154, 	-- Five stage
+											at0155]	-- Six stage
+										}
+									}
+								}
+							}
+							ELEMENT[at0068] occurrences matches {0..1} matches {	-- Peripheral neuropathy
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0069] occurrences matches {0..1} matches {	-- Diabetic Foot
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0137, 	-- None
+											at0138, 	-- One stage
+											at0156, 	-- Two stage
+											at0157, 	-- Three stage
+											at0158, 	-- Four stage
+											at0159]	-- Five stage
+										}
+									}
+								}
+							}
+							CLUSTER[at0075] occurrences matches {0..1} matches {	-- Peripheral atherosclerosis
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0076] occurrences matches {0..1} matches {	-- FLag
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0079] occurrences matches {0..1} matches {	--  Intermittent claudication
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+							ELEMENT[at0139] occurrences matches {0..1} matches {	-- Autonomic neuropathy
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0140, 	-- Angiocarpy
+											at0141, 	-- Stomach
+											at0142, 	-- Bladder
+											at0143]	-- Hidrosis
+										}
+									}
+								}
+							}
+							CLUSTER[at0144] occurrences matches {0..1} matches {	-- Venous thrombosis
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0080] occurrences matches {0..1} matches {	-- Venous thrombosis site
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0145] occurrences matches {0..1} matches {	-- Flag
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Diabetes history">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"First Detected">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"IGR">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Datetime">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Therapeutic condition">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Diagnose DM">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"DM type">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Datetime">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Family history">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Diet therapy">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Assessment">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Staple food per day">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Good">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Bad">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Vegetable per day">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Sport therapy">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Assessment">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Good">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Ordinary">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Little">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Sport">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Duration">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Blood Glucose Self-Monitoring">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Zero to one time one month">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Zero to one time one week">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"more than five times one week">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Blood glucose monitoring in hospital per year">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Recent blood glucose">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Before meals">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"After meals">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Limosis in hospital">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Two hours after meals">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Min value">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Max value">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"HbA1c test in a year">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Min value">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Max value">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Times">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Min reference">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Max reference">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Hypoglycemic agent therapy">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Classification">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Ever used before">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Recent used">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Single-agent oral">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Multiple-agent oral">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Insulin">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Combination medication">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Hypoglycemic agent">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Acute complications">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Hypoglycemia">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Hypoglycemic coma">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Ketoacidosis">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Hyperglycemic hyperosmolar status">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Severe infection">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Lactic acidosis">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Chronic complication">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Retinopathy stage">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Stage renal disease">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Peripheral neuropathy">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Diabetic Foot">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"Peripheral atherosclerosis">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"FLag">
+					description = <"*">
+				>
+				["at0079"] = <
+					text = <" Intermittent claudication">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"Venous thrombosis site">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"IGT">
+					description = <"IGT">
+				>
+				["at0082"] = <
+					text = <"IFG">
+					description = <"IFG">
+				>
+				["at0083"] = <
+					text = <"IGT+IFG">
+					description = <"IGT+IFG">
+				>
+				["at0084"] = <
+					text = <"GAD">
+					description = <"GAD">
+				>
+				["at0085"] = <
+					text = <"T2DM">
+					description = <"T2DM">
+				>
+				["at0086"] = <
+					text = <"T1DM">
+					description = <"T1DM">
+				>
+				["at0087"] = <
+					text = <"Others">
+					description = <"Others">
+				>
+				["at0088"] = <
+					text = <"None">
+					description = <"None">
+				>
+				["at0089"] = <
+					text = <"Father">
+					description = <"Father">
+				>
+				["at0090"] = <
+					text = <"Mother">
+					description = <"Mother">
+				>
+				["at0091"] = <
+					text = <"Brother&Sister">
+					description = <"Brother&Sister">
+				>
+				["at0092"] = <
+					text = <"Grandfather">
+					description = <"Grandfather">
+				>
+				["at0093"] = <
+					text = <"Grandmother">
+					description = <"Grandmother">
+				>
+				["at0094"] = <
+					text = <"Grandfather in law">
+					description = <"Grandfather in law">
+				>
+				["at0095"] = <
+					text = <"Grandmother in law">
+					description = <"Grandmother in law">
+				>
+				["at0096"] = <
+					text = <"Ant, uncle, nephew">
+					description = <"The relationships among Ant, uncle and nephew">
+				>
+				["at0097"] = <
+					text = <"Ant, uncle, nephew in law">
+					description = <"The relationships among Ant, uncle and nephew in law">
+				>
+				["at0098"] = <
+					text = <"Slow walking">
+					description = <"Slow walking">
+				>
+				["at0099"] = <
+					text = <"Walking">
+					description = <"Walking ">
+				>
+				["at0100"] = <
+					text = <"Running">
+					description = <"Running">
+				>
+				["at0101"] = <
+					text = <"Bicycling">
+					description = <"Bicycling">
+				>
+				["at0102"] = <
+					text = <"Table tennis">
+					description = <"Table tennis">
+				>
+				["at0103"] = <
+					text = <"Gate ball">
+					description = <"Gate ball">
+				>
+				["at0104"] = <
+					text = <"Badminton">
+					description = <"Badminton">
+				>
+				["at0105"] = <
+					text = <"Swimming">
+					description = <"Swimming">
+				>
+				["at0106"] = <
+					text = <"Gymnastics">
+					description = <"Gymnastics">
+				>
+				["at0107"] = <
+					text = <"Others">
+					description = <"Others">
+				>
+				["at0108"] = <
+					text = <"None">
+					description = <"None">
+				>
+				["at0109"] = <
+					text = <"Two to five times one week">
+					description = <"*">
+				>
+				["at0110"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"Insulin">
+					description = <"*">
+				>
+				["at0114"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0115"] = <
+					text = <"Biguanides">
+					description = <"*">
+				>
+				["at0116"] = <
+					text = <"GSDI">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"Sulfonylurea">
+					description = <"*">
+				>
+				["at0118"] = <
+					text = <"Nateglinide">
+					description = <"*">
+				>
+				["at0119"] = <
+					text = <"Pioglitazone">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"DPP4-I">
+					description = <"*">
+				>
+				["at0121"] = <
+					text = <"Chinese patent medicine">
+					description = <"*">
+				>
+				["at0122"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0123"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0124"] = <
+					text = <"Premixed human insulin 70/30">
+					description = <"*">
+				>
+				["at0125"] = <
+					text = <"Premixed human insulin 30R">
+					description = <"*">
+				>
+				["at0126"] = <
+					text = <"Premixed insulin analogs50R">
+					description = <"*">
+				>
+				["at0127"] = <
+					text = <"Insulin detemir">
+					description = <"*">
+				>
+				["at0128"] = <
+					text = <"Insulin glargine">
+					description = <"*">
+				>
+				["at0129"] = <
+					text = <"Insulin lispro">
+					description = <"*">
+				>
+				["at0130"] = <
+					text = <"Insulin aspart">
+					description = <"*">
+				>
+				["at0131"] = <
+					text = <"Animal insulin">
+					description = <"*">
+				>
+				["at0132"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0133"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0134"] = <
+					text = <"One stage">
+					description = <"*">
+				>
+				["at0135"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0136"] = <
+					text = <"One stage">
+					description = <"*">
+				>
+				["at0137"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0138"] = <
+					text = <"One stage">
+					description = <"*">
+				>
+				["at0139"] = <
+					text = <"Autonomic neuropathy">
+					description = <"*">
+				>
+				["at0140"] = <
+					text = <"Angiocarpy">
+					description = <"*">
+				>
+				["at0141"] = <
+					text = <"Stomach">
+					description = <"*">
+				>
+				["at0142"] = <
+					text = <"Bladder">
+					description = <"*">
+				>
+				["at0143"] = <
+					text = <"Hidrosis">
+					description = <"*">
+				>
+				["at0144"] = <
+					text = <"Venous thrombosis">
+					description = <"*">
+				>
+				["at0145"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0146"] = <
+					text = <"Two stage">
+					description = <"*">
+				>
+				["at0147"] = <
+					text = <"Three stage">
+					description = <"*">
+				>
+				["at0148"] = <
+					text = <"Four stage">
+					description = <"*">
+				>
+				["at0149"] = <
+					text = <"Five stage">
+					description = <"*">
+				>
+				["at0150"] = <
+					text = <"Six stage">
+					description = <"*">
+				>
+				["at0151"] = <
+					text = <"Two stage">
+					description = <"*">
+				>
+				["at0152"] = <
+					text = <"Three stage">
+					description = <"*">
+				>
+				["at0153"] = <
+					text = <"Four stage">
+					description = <"*">
+				>
+				["at0154"] = <
+					text = <"Five stage">
+					description = <"*">
+				>
+				["at0155"] = <
+					text = <"Six stage">
+					description = <"*">
+				>
+				["at0156"] = <
+					text = <"Two stage">
+					description = <"*">
+				>
+				["at0157"] = <
+					text = <"Three stage">
+					description = <"*">
+				>
+				["at0158"] = <
+					text = <"Four stage">
+					description = <"*">
+				>
+				["at0159"] = <
+					text = <"Five stage">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"糖尿病史">
+					description = <"*">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"首次发现">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"IGR">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"时间">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"治疗情况">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"确诊DM">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"DM类型">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"时间">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"家族史">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"饮食治疗">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"评估">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"每天主食量">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"好">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"一般">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"差">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"每天蔬菜量">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"运动治疗">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"评估">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"好">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"一般">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"少">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"运动">
+					description = <"**(en)">
+				>
+				["at0023"] = <
+					text = <"类型">
+					description = <"**(en)">
+				>
+				["at0024"] = <
+					text = <"时长">
+					description = <"**(en)">
+				>
+				["at0025"] = <
+					text = <"血糖自我监测">
+					description = <"**(en)">
+				>
+				["at0026"] = <
+					text = <"0-1次/月">
+					description = <"**(en)">
+				>
+				["at0027"] = <
+					text = <"0-1次/周">
+					description = <"**(en)">
+				>
+				["at0028"] = <
+					text = <">=6次/周">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"每年医院检测血糖次数">
+					description = <"**(en)">
+				>
+				["at0030"] = <
+					text = <"近期血糖">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"类型">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"餐前自测">
+					description = <"**(en)">
+				>
+				["at0033"] = <
+					text = <"餐后自测">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"医院空腹">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"餐后2h">
+					description = <"**(en)">
+				>
+				["at0036"] = <
+					text = <"最小值">
+					description = <"**(en)">
+				>
+				["at0037"] = <
+					text = <"最大值">
+					description = <"**(en)">
+				>
+				["at0038"] = <
+					text = <"一年内检测HbA1c">
+					description = <"**(en)">
+				>
+				["at0039"] = <
+					text = <"最小值">
+					description = <"**(en)">
+				>
+				["at0040"] = <
+					text = <"最大值">
+					description = <"**(en)">
+				>
+				["at0041"] = <
+					text = <"次数">
+					description = <"**(en)">
+				>
+				["at0042"] = <
+					text = <"*正常最小值">
+					description = <"**(en)">
+				>
+				["at0043"] = <
+					text = <"正常最大值">
+					description = <"**(en)">
+				>
+				["at0044"] = <
+					text = <"降糖药物治疗">
+					description = <"**(en)">
+				>
+				["at0045"] = <
+					text = <"类型">
+					description = <"**(en)">
+				>
+				["at0046"] = <
+					text = <"曾用">
+					description = <"**(en)">
+				>
+				["at0047"] = <
+					text = <"近期">
+					description = <"**(en)">
+				>
+				["at0048"] = <
+					text = <"服药种类">
+					description = <"**(en)">
+				>
+				["at0049"] = <
+					text = <"单药口服">
+					description = <"**(en)">
+				>
+				["at0050"] = <
+					text = <"多药口服">
+					description = <"**(en)">
+				>
+				["at0051"] = <
+					text = <"胰岛素">
+					description = <"**(en)">
+				>
+				["at0052"] = <
+					text = <"联合">
+					description = <"**(en)">
+				>
+				["at0053"] = <
+					text = <"其他">
+					description = <"**(en)">
+				>
+				["at0054"] = <
+					text = <"降糖药物">
+					description = <"**(en)">
+				>
+				["at0055"] = <
+					text = <"急性并发症">
+					description = <"**(en)">
+				>
+				["at0056"] = <
+					text = <"类型">
+					description = <"**(en)">
+				>
+				["at0057"] = <
+					text = <"低血糖">
+					description = <"**(en)">
+				>
+				["at0058"] = <
+					text = <"低血糖昏迷">
+					description = <"**(en)">
+				>
+				["at0059"] = <
+					text = <"酮症酸中毒">
+					description = <"**(en)">
+				>
+				["at0060"] = <
+					text = <"高血糖高渗状态">
+					description = <"**(en)">
+				>
+				["at0061"] = <
+					text = <"重症感染">
+					description = <"**(en)">
+				>
+				["at0062"] = <
+					text = <"乳酸酸中毒">
+					description = <"**(en)">
+				>
+				["at0063"] = <
+					text = <"其它">
+					description = <"**(en)">
+				>
+				["at0064"] = <
+					text = <"备注">
+					description = <"**(en)">
+				>
+				["at0065"] = <
+					text = <"慢性并发症">
+					description = <"**(en)">
+				>
+				["at0066"] = <
+					text = <"视网膜病变分期">
+					description = <"**(en)">
+				>
+				["at0067"] = <
+					text = <"肾脏病变分期">
+					description = <"**(en)">
+				>
+				["at0068"] = <
+					text = <"外周神经病变">
+					description = <"**(en)">
+				>
+				["at0069"] = <
+					text = <"糖尿病足">
+					description = <"**(en)">
+				>
+				["at0075"] = <
+					text = <"外周动脉粥样硬化">
+					description = <"**(en)">
+				>
+				["at0076"] = <
+					text = <"外周动脉粥样硬化">
+					description = <"**(en)">
+				>
+				["at0079"] = <
+					text = <"间歇性跛行">
+					description = <"**(en)">
+				>
+				["at0080"] = <
+					text = <"静脉血栓形成部位">
+					description = <"**(en)">
+				>
+				["at0081"] = <
+					text = <"IGT">
+					description = <"IGT">
+				>
+				["at0082"] = <
+					text = <"IFG">
+					description = <"*IFG(en)">
+				>
+				["at0083"] = <
+					text = <"IGT+IFG">
+					description = <"*IGT+IFG(en)">
+				>
+				["at0084"] = <
+					text = <"GAD">
+					description = <"*GAD(en)">
+				>
+				["at0085"] = <
+					text = <"T2DM">
+					description = <"*T2DM(en)">
+				>
+				["at0086"] = <
+					text = <"T1DM">
+					description = <"*T1DM(en)">
+				>
+				["at0087"] = <
+					text = <"其他">
+					description = <"*Others(en)">
+				>
+				["at0088"] = <
+					text = <"无">
+					description = <"*None(en)">
+				>
+				["at0089"] = <
+					text = <"父亲">
+					description = <"*Father(en)">
+				>
+				["at0090"] = <
+					text = <"母亲">
+					description = <"*Mother(en)">
+				>
+				["at0091"] = <
+					text = <"兄弟姐妹">
+					description = <"*Brother&Sister(en)">
+				>
+				["at0092"] = <
+					text = <"爷爷">
+					description = <"*Grandfather(en)">
+				>
+				["at0093"] = <
+					text = <"奶奶">
+					description = <"*Grandmother(en)">
+				>
+				["at0094"] = <
+					text = <"姥爷">
+					description = <"*Grandfather in law(en)">
+				>
+				["at0095"] = <
+					text = <"姥姥">
+					description = <"*Grandmother in law(en)">
+				>
+				["at0096"] = <
+					text = <"姑叔侄">
+					description = <"*The relationships among Ant, uncle and nephew(en)">
+				>
+				["at0097"] = <
+					text = <"姨舅甥">
+					description = <"*The relationships among Ant, uncle and nephew in law(en)">
+				>
+				["at0098"] = <
+					text = <"慢走">
+					description = <"*Slow walking(en)">
+				>
+				["at0099"] = <
+					text = <"快走">
+					description = <"*Walking (en)">
+				>
+				["at0100"] = <
+					text = <"跑步">
+					description = <"*Running(en)">
+				>
+				["at0101"] = <
+					text = <"骑车">
+					description = <"*Bicycling(en)">
+				>
+				["at0102"] = <
+					text = <"乒乓球">
+					description = <"*Table tennis(en)">
+				>
+				["at0103"] = <
+					text = <"门球">
+					description = <"*Gate ball(en)">
+				>
+				["at0104"] = <
+					text = <"羽毛球">
+					description = <"*Badminton(en)">
+				>
+				["at0105"] = <
+					text = <"游泳">
+					description = <"*Swimming(en)">
+				>
+				["at0106"] = <
+					text = <"体操">
+					description = <"*Gymnastics(en)">
+				>
+				["at0107"] = <
+					text = <"其它">
+					description = <"*Others(en)">
+				>
+				["at0108"] = <
+					text = <"无">
+					description = <"*None(en)">
+				>
+				["at0109"] = <
+					text = <"2-5次/周">
+					description = <"**(en)">
+				>
+				["at0110"] = <
+					text = <"一年内检测HbA1c标志">
+					description = <"**(en)">
+				>
+				["at0113"] = <
+					text = <"胰岛素">
+					description = <"**(en)">
+				>
+				["at0114"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0115"] = <
+					text = <"双胍类">
+					description = <"**(en)">
+				>
+				["at0116"] = <
+					text = <"糖苷酶抑制剂">
+					description = <"**(en)">
+				>
+				["at0117"] = <
+					text = <"磺酰脲类">
+					description = <"**(en)">
+				>
+				["at0118"] = <
+					text = <"格列奈类">
+					description = <"**(en)">
+				>
+				["at0119"] = <
+					text = <"吡格列酮">
+					description = <"**(en)">
+				>
+				["at0120"] = <
+					text = <"DPP4-I">
+					description = <"**(en)">
+				>
+				["at0121"] = <
+					text = <"中成药">
+					description = <"**(en)">
+				>
+				["at0122"] = <
+					text = <"其它">
+					description = <"**(en)">
+				>
+				["at0123"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0124"] = <
+					text = <"预混人胰岛素70/30">
+					description = <"**(en)">
+				>
+				["at0125"] = <
+					text = <"预混人胰岛素30R">
+					description = <"**(en)">
+				>
+				["at0126"] = <
+					text = <"预混人胰岛素50R">
+					description = <"**(en)">
+				>
+				["at0127"] = <
+					text = <"地特胰岛素">
+					description = <"**(en)">
+				>
+				["at0128"] = <
+					text = <"甘精胰岛素">
+					description = <"**(en)">
+				>
+				["at0129"] = <
+					text = <"赖脯胰岛素">
+					description = <"**(en)">
+				>
+				["at0130"] = <
+					text = <"门冬胰岛素">
+					description = <"**(en)">
+				>
+				["at0131"] = <
+					text = <"动物胰岛素">
+					description = <"**(en)">
+				>
+				["at0132"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0133"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0134"] = <
+					text = <"一期">
+					description = <"**(en)">
+				>
+				["at0135"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0136"] = <
+					text = <"一期">
+					description = <"**(en)">
+				>
+				["at0137"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0138"] = <
+					text = <"一期">
+					description = <"**(en)">
+				>
+				["at0139"] = <
+					text = <"自主神经病变">
+					description = <"**(en)">
+				>
+				["at0140"] = <
+					text = <"心血管">
+					description = <"**(en)">
+				>
+				["at0141"] = <
+					text = <"胃肠">
+					description = <"**(en)">
+				>
+				["at0142"] = <
+					text = <"膀胱">
+					description = <"**(en)">
+				>
+				["at0143"] = <
+					text = <"多汗">
+					description = <"**(en)">
+				>
+				["at0144"] = <
+					text = <"静脉血栓形成">
+					description = <"**(en)">
+				>
+				["at0145"] = <
+					text = <"静脉血栓形成标志">
+					description = <"**(en)">
+				>
+				["at0146"] = <
+					text = <"二期">
+					description = <"**(en)">
+				>
+				["at0147"] = <
+					text = <"三期">
+					description = <"**(en)">
+				>
+				["at0148"] = <
+					text = <"四期">
+					description = <"**(en)">
+				>
+				["at0149"] = <
+					text = <"五期">
+					description = <"**(en)">
+				>
+				["at0150"] = <
+					text = <"六期">
+					description = <"**(en)">
+				>
+				["at0151"] = <
+					text = <"二期">
+					description = <"**(en)">
+				>
+				["at0152"] = <
+					text = <"三期">
+					description = <"**(en)">
+				>
+				["at0153"] = <
+					text = <"四期">
+					description = <"**(en)">
+				>
+				["at0154"] = <
+					text = <"五期">
+					description = <"**(en)">
+				>
+				["at0155"] = <
+					text = <"六期">
+					description = <"**(en)">
+				>
+				["at0156"] = <
+					text = <"二期">
+					description = <"**(en)">
+				>
+				["at0157"] = <
+					text = <"三期">
+					description = <"**(en)">
+				>
+				["at0158"] = <
+					text = <"四期">
+					description = <"**(en)">
+				>
+				["at0159"] = <
+					text = <"五期">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

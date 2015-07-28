@@ -1,0 +1,435 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.hyperuricemia.v1.1
+
+concept
+	[at0000]	-- Hyperuricemia
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2C2EAE27C9C36FDCE8DB2BF256FFDB05">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Hyperuricemia
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Flag
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0021, 	-- None
+									at0022, 	-- Exist
+									at0023]	-- Unknown
+								}
+							}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Primary
+									at0004]	-- Secondary
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Diagnosis duration
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"a">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Blood uric acid min value
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Blood uric acid max value
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0008] occurrences matches {0..1} matches {	-- Gout
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Site
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0026, 	-- Unilateral
+											at0027, 	-- Bilateral + metatarsophalangeal joints
+											at0028, 	-- Knee-joint
+											at0029, 	-- Ankle joint
+											at0030, 	-- Elbow joint
+											at0031]	-- Multiple-joint
+										}
+									}
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Breakout onset
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"a">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Frequency per year
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- Joint deformity
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0024] occurrences matches {0..1} matches {	-- Uratoma
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0025] occurrences matches {0..1} matches {	-- Flag
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Dietary therapy
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0032] occurrences matches {0..1} matches {	-- Uric acid lowering
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0033, 	-- None
+									at0034, 	-- Benzbromarone
+									at0035, 	-- Allopurinol
+									at0036, 	-- Febuxostat
+									at0037, 	-- Sodium bicarbonate
+									at0038]	-- Others
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hyperuricemia">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Primary">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Secondary">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Diagnosis duration">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Blood uric acid min value">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Blood uric acid max value">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Gout">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Site">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Breakout onset">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Frequency per year">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Joint deformity">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Dietary therapy">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Exist">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Unknown">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Uratoma">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Flag">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Unilateral">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Bilateral + metatarsophalangeal joints">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Knee-joint">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Ankle joint">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Elbow joint">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Multiple-joint">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Uric acid lowering">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Benzbromarone">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Allopurinol">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Febuxostat">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Sodium bicarbonate">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Others">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"高尿酸血症">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"分型">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"原发">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"继发">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"诊断时长">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"血尿酸最小值">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"血尿酸最大值">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"痛风">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"部位">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"发作起始年限">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"每年发作频次">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"关节畸形">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"饮食治疗">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"高尿酸血症标志">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"有">
+					description = <"**(en)">
+				>
+				["at0023"] = <
+					text = <"不详">
+					description = <"**(en)">
+				>
+				["at0024"] = <
+					text = <"痛风石">
+					description = <"**(en)">
+				>
+				["at0025"] = <
+					text = <"痛风标志">
+					description = <"**(en)">
+				>
+				["at0026"] = <
+					text = <"单侧">
+					description = <"**(en)">
+				>
+				["at0027"] = <
+					text = <"双侧+跖趾关节">
+					description = <"**(en)">
+				>
+				["at0028"] = <
+					text = <"膝关节">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"踝关节">
+					description = <"**(en)">
+				>
+				["at0030"] = <
+					text = <"肘关节">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"多关节">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"降尿酸药">
+					description = <"**(en)">
+				>
+				["at0033"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"苯溴马隆">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"别嘌呤醇">
+					description = <"**(en)">
+				>
+				["at0036"] = <
+					text = <"非布司他">
+					description = <"**(en)">
+				>
+				["at0037"] = <
+					text = <"碳酸氢钠">
+					description = <"**(en)">
+				>
+				["at0038"] = <
+					text = <"其它">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

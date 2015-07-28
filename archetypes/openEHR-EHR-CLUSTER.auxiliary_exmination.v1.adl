@@ -1,0 +1,260 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.auxiliary_exmination.v1.1
+
+concept
+	[at0000]	-- Auxiliary exmination
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2024A16707593C9BCA0F49ABFD6C461E">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Auxiliary exmination
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0004] occurrences matches {0..1} matches {	-- Electrocardiogram
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Normal flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Report
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0007] occurrences matches {0..1} matches {	-- X-ray
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Normal flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Report
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0009] occurrences matches {0..1} matches {	-- Viscera ultrasound
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Normal flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Report
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0012] occurrences matches {0..1} matches {	-- Intravascular doppler ultrasound
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Normal flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Report
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Site
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- Neck
+									at0017]	-- Lower limbs
+								}
+							}
+						}
+					}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Abnormal report
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Auxiliary exmination">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Abnormal report">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Normal flag">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Electrocardiogram">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Normal flag">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Report">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"X-ray">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Report">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Viscera ultrasound">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Normal flag">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Report">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Intravascular doppler ultrasound">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Normal flag">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Report">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Site">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Neck">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Lower limbs">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"辅助检查">
+					description = <"*unknown(zh)">
+				>
+				["at0001"] = <
+					text = <"异常报告">
+					description = <"**(zh)">
+				>
+				["at0002"] = <
+					text = <"正常标志">
+					description = <"**(zh)">
+				>
+				["at0004"] = <
+					text = <"心电图">
+					description = <"**(zh)">
+				>
+				["at0005"] = <
+					text = <"正常标志">
+					description = <"**(zh)">
+				>
+				["at0006"] = <
+					text = <"报告">
+					description = <"**(zh)">
+				>
+				["at0007"] = <
+					text = <"X线检查">
+					description = <"**(zh)">
+				>
+				["at0008"] = <
+					text = <"报告">
+					description = <"**(zh)">
+				>
+				["at0009"] = <
+					text = <"脏器B超检查">
+					description = <"**(zh)">
+				>
+				["at0010"] = <
+					text = <"正常标志">
+					description = <"**(zh)">
+				>
+				["at0011"] = <
+					text = <"报告">
+					description = <"**(zh)">
+				>
+				["at0012"] = <
+					text = <"血管多普勒超声">
+					description = <"**(zh)">
+				>
+				["at0013"] = <
+					text = <"正常标志">
+					description = <"**(zh)">
+				>
+				["at0014"] = <
+					text = <"报告">
+					description = <"**(zh)">
+				>
+
+				["at0015"] = <
+					text = <"部位">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"颈">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"下肢">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

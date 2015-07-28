@@ -1,0 +1,284 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.liver_injury.v1.1
+
+concept
+	[at0000]	-- Liver injury
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"D1A0CA4012C2B7693A9A3F940278BCFB">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Liver injury
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- None
+									at0017, 	-- NAFLD
+									at0018]	-- Alcoholic liver damage flag
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Alcoholic liver damage level
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0005, 	-- Light
+									at0006, 	-- Middle
+									at0007]	-- High
+								}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Virus hepatitis type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- Hepatitis B
+									at0011, 	-- Hepatitis C
+									at0019, 	-- None
+									at0020, 	-- Hepatitis A
+									at0021]	-- Others
+								}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Drugs liver lesion flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Drugs liver lesion content
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Cirrhosis flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Other liver injury content
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Other liver injury flag
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Liver injury">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Alcoholic liver damage level">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Light">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Middle">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"High">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Virus hepatitis type">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Hepatitis B">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Hepatitis C">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Drugs liver lesion flag">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Drugs liver lesion content">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Cirrhosis flag">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Other liver injury content">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"NAFLD">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Alcoholic liver damage flag">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Hepatitis A">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Others">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Other liver injury flag">
+					description = <"*">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"肝脏损伤">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"肝脏损伤">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"酒精性肝损程度">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"轻">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"中">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"重度">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"病毒性肝炎分类">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"乙肝">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"丙肝">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"药物性肝损">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"药物性肝损内容">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"肝硬化">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"其它肝损伤内容">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"非酒精性脂肪肝">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"酒精性肝损">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"无">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"甲肝">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"其它">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"其它肝损标志">
+					description = <"**(en)">
+				>
+			>
+		>
+	>
